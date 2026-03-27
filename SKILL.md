@@ -1,11 +1,14 @@
 ---
 name: paper-3w-research
-description: Search biomedical and general research literature from Google Scholar, PubMed, and major preprint sources such as Europe PMC, bioRxiv, medRxiv, and arXiv, then present candidate papers in a WHY / HOW / WHAT frame. Use when the user wants literature discovery, topic scanning, paper comparison, or a structured explanation of what problem papers study, how they solve it, and what the results mean or still miss.
+description: Search biomedical and adjacent technical literature from PubMed, Europe PMC, Google Scholar, and arXiv, then summarize each shortlisted paper in a WHY / HOW / WHAT frame for fast comparison and review.
 ---
 
 # Paper WHY HOW WHAT
 
 Layer: `research`
+
+This public starter version is designed to be portable across agent setups.
+Use local relative paths when possible and avoid assuming a private project layout.
 
 Use this skill when the user wants to:
 
@@ -29,7 +32,7 @@ Use this skill when the user wants to:
 Run:
 
 ```bash
-python3 "$ROBIN_SKILLS_ROOT/paper-3w-research/scripts/search_literature.py" \
+python3 "./scripts/search_literature.py" \
   --query "<topic or question>" \
   --limit 5 \
   --providers pubmed,europepmc,scholar,arxiv \
@@ -39,10 +42,10 @@ python3 "$ROBIN_SKILLS_ROOT/paper-3w-research/scripts/search_literature.py" \
 Useful variants:
 
 ```bash
-python3 "$ROBIN_SKILLS_ROOT/paper-3w-research/scripts/search_literature.py" \
+python3 "./scripts/search_literature.py" \
   --query "<topic>" \
   --limit 8 \
-  --providers pubmed,europepmc \
+  --providers europepmc,arxiv \
   --preprints-only \
   --format json
 ```
@@ -116,15 +119,17 @@ When comparing multiple papers, add a final synthesis:
 - strongest `WHAT`,
 - unresolved global gap.
 
-## Output routing
+## Optional output routing
 
-If the user asks to save a report, store it under:
+If the user asks to save a report, a simple public default is:
 
-- `$ROBIN_OUTPUTS_ROOT/paper-3w-research/<YYYY-MM-DD>/`
+- `./outputs/<YYYY-MM-DD>/`
 
 Preferred filename:
 
 - `<YYYYMMDD_HHMM>__paper-3w-research__literature-brief__v01.md`
+
+If the host project has its own canonical outputs directory, use that instead.
 
 ## References
 
