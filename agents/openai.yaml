@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper 3W Research"
+  short_description: "搜索 Scholar、PubMed 与预印本，并按 WHY/HOW/WHAT 提炼论文"
+  default_prompt: "使用 $paper-3w-research 检索这个研究主题的文献，覆盖 PubMed、Google Scholar 和主要预印本来源，并按 WHY、HOW、WHAT 总结每篇论文。"
