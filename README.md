@@ -1,12 +1,36 @@
 # paper-3w-research
 
-`paper-3w-research` is a lightweight research skill starter for literature discovery across `PubMed`, `Europe PMC`, `Google Scholar`, and `arXiv`, followed by a structured summary frame:
+Search literature across `PubMed`, `Europe PMC`, `Google Scholar`, and `arXiv`, then turn each shortlisted paper into a fast, decision-friendly research note:
 
-- `WHY`: why the paper matters, what problem it targets, and why that problem is important
-- `HOW`: how the authors approached the problem, including the main method or innovation
-- `WHAT`: what they found, built, or demonstrated, plus the remaining gap
+- `WHY`: why this paper matters
+- `HOW`: how the work was done
+- `WHAT`: what it actually showed or produced
 
-This repo is designed for people who want a reusable prompt-and-script starter for biomedical and adjacent technical literature reviews.
+`paper-3w-research` is a lightweight starter for researchers, builders, and agent workflows that need faster first-pass literature discovery without losing structure.
+
+## Why this exists
+
+Most literature search flows fail in one of two ways:
+
+- they return a noisy pile of links with no reasoning structure
+- they produce polished summaries that blur the paper's actual contribution
+
+This repo is built around a simple rule: first find candidate papers from credible public sources, then summarize them in a frame that helps you compare research quickly and decide what to read next.
+
+## Product snapshot
+
+- Multi-source discovery: `PubMed`, `Europe PMC`, `Google Scholar`, `arXiv`
+- Research-ready frame: `WHY / HOW / WHAT`
+- Good fit for: biomedical, bioengineering, diagnostics, imaging, sensing, and ML-adjacent methods
+- Usage modes: standalone Python script or agent skill starter
+- Output style: compact shortlist for rapid triage, comparison, and review drafting
+
+## What you get
+
+- a reusable `SKILL.md` for agent workflows
+- a small Python search script you can run directly
+- source notes for provider interpretation
+- a simple starter layout that is easy to fork and adapt
 
 ## What is inside
 
@@ -40,6 +64,15 @@ This repo is designed for people who want a reusable prompt-and-script starter f
 - finding both peer-reviewed and preprint work around a method
 - turning an open-ended research question into a shortlist with consistent notes
 
+## How it works
+
+1. Convert a topic into one compact search query.
+2. Search multiple public literature sources.
+3. Deduplicate overlapping hits.
+4. Keep papers with usable metadata, abstracts, or strong snippets.
+5. Summarize each shortlisted paper in `WHY / HOW / WHAT`.
+6. Synthesize cross-paper patterns, gaps, and next reading priorities.
+
 ## Quick start
 
 1. Clone the repo.
@@ -71,6 +104,12 @@ Link: https://...
 - WHAT: They showed...
 ```
 
+## Example prompt
+
+```text
+Use the paper-3w-research skill to search this topic across PubMed, Europe PMC, Google Scholar, and arXiv, then summarize each shortlisted paper by WHY, HOW, and WHAT.
+```
+
 ## Using it as a Codex skill
 
 You can point Codex or another agent to `SKILL.md` and ask it to:
@@ -79,12 +118,6 @@ You can point Codex or another agent to `SKILL.md` and ask it to:
 - shortlist the most relevant papers
 - summarize each paper in a `WHY / HOW / WHAT` frame
 - synthesize common themes, methodological differences, and unresolved gaps
-
-Suggested prompt:
-
-```text
-Use the paper-3w-research skill to search this topic across PubMed, Google Scholar, Europe PMC, and arXiv, then summarize each shortlisted paper by WHY, HOW, and WHAT.
-```
 
 ## Notes on sources
 
@@ -110,4 +143,4 @@ This repository is intentionally kept small and portable:
 
 ## License
 
-No license file is included yet. Add one before broader reuse if you want to define sharing terms explicitly.
+Released under the MIT License. See [LICENSE](LICENSE).
